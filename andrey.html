@@ -39,6 +39,8 @@ font-size:14.5px;line-height:1.65}
 .sab{background:#fff;margin:12px;padding:16px;border-radius:12px}
 .sab h3{font-size:15px;margin-bottom:10px;color:#16241c}
 .sab p{font-size:13px;color:#777;margin-bottom:11px;line-height:1.5}
+.kbtn{display:block;width:100%;background:#1a8b4a;color:#fff;border:none;border-radius:9px;
+padding:14px;font-size:16px;font-weight:700;margin-bottom:12px;cursor:pointer}
 .sab pre{background:#f6f6f8;padding:14px;border-radius:9px;font-size:12.5px;
 line-height:1.85;white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace;
 border:1px solid #e8e8ec;user-select:all;-webkit-user-select:all}
@@ -171,36 +173,46 @@ border:1px solid #e8e8ec;user-select:all;-webkit-user-select:all}
 </div>
 <div class="son">
 <b>İŞ BİTİNCE</b><br>
-Aşağıdaki listeye uzun bas, <b>Tümünü Seç → Kopyala</b> yap.<br>
-WhatsApp'ta Ali Bey'e yapıştır, çıkmayanların yanına <b>YOK</b> yaz.
+Yeşil butona bas — <b>işaretlediklerin rapora otomatik yazılır</b> ve kopyalanır.<br>
+WhatsApp'ta Ali Bey'e yapıştır. Elle bir şey yazmana gerek yok.
 </div>
 <div class="sab">
-<h3>📋 Rapor şablonu</h3>
-<p>Uzun bas → Tümünü Seç → Kopyala</p>
-<pre>ANDREY BAHAR — AYIRMA RAPORU
-16.06.2025 fuar siparişi
-
-CANMER
-1. 5280 LACİ — 6 adet  ☐
-2. 5280 SİYAH — 6 adet  ☐
-3. 5280 İVORY — 6 adet  ☐
-4. 5285 LACİ — 6 adet  ☐
-
-KAVİ
-5. 6200 LACİ — 6 adet  ☐
-6. 6200 SİYAH — 6 adet  ☐
-7. 6470 BEYAZ — 6 adet  ☐
-8. 6470 SİYAH — 6 adet  ☐
-9. 71130 BEYAZ — 1 adet  ☐
-10. 8170 LACİ — 6 adet  ☐
-11. 8175 LACİ — 6 adet  ☐
-
-ŞIK
-12. 23414 LACİ — 4 adet  ☐
-13. 24473 LACİ — 4 adet  ☐
-14. 29188 SİYAH — 1 adet  ☐
-15. 50109 SİYAH — 4 adet  ☐
-
-Çıkmayanların yanına YOK yaz.</pre>
+<h3>📋 Rapor</h3>
+<button class="kbtn" onclick="kopyala()">📋 RAPORU OLUŞTUR + KOPYALA</button>
+<pre id="rapor">Önce yukarıda AYIRDIM / YOK işaretle, sonra yeşil butona bas.</pre>
 </div>
-</body></html>
+<script>
+var cards=[].slice.call(document.querySelectorAll('.card'));
+cards.forEach(function(c){
+ var cbs=c.querySelectorAll('input[type=checkbox]');
+ cbs[0].addEventListener('change',function(){if(this.checked)cbs[1].checked=false;});
+ cbs[1].addEventListener('change',function(){if(this.checked)cbs[0].checked=false;});
+});
+function veri(c){
+ var kod=c.querySelector('.kod').textContent.trim();
+ var renk=c.querySelector('.renk').textContent.trim();
+ var ver=c.querySelector('.ver').textContent.trim();
+ var vkod=c.querySelector('.vkod')?c.querySelector('.vkod').textContent.trim():'';
+ return kod+' '+renk+' — '+ver+' ('+vkod+')';
+}
+function kopyala(){
+ var ayr=[],yok=[],bos=[];
+ cards.forEach(function(c,i){
+  var cbs=c.querySelectorAll('input[type=checkbox]');
+  var s=(i+1)+'. '+veri(c);
+  if(cbs[0].checked)ayr.push('✅ '+s);
+  else if(cbs[1].checked)yok.push('❌ '+s);
+  else bos.push('⬜ '+s);
+ });
+ var L=['ANDREY BAHAR — AYIRMA RAPORU','Tarih: '+new Date().toLocaleDateString('tr-TR'),''];
+ L.push('AYRILDI ('+ayr.length+' kalem):');L=L.concat(ayr.length?ayr:['—']);
+ L.push('','YOK ('+yok.length+' kalem):');L=L.concat(yok.length?yok:['—']);
+ if(bos.length){L.push('','İŞARETLENMEDİ ('+bos.length+'):');L=L.concat(bos);}
+ var t=L.join('\n');
+ document.getElementById('rapor').textContent=t;
+ function ok(){var b=document.querySelector('.kbtn');b.textContent='✓ KOPYALANDI — WhatsApp\'a yapıştır';b.style.background='#16241c';}
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok).catch(function(){eski(t);ok();});}
+ else{eski(t);ok();}
+}
+function eski(t){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);}
+</script></body></html>
