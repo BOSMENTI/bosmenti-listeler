@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEYLA · Ayırma</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:#f4f4f6;color:#1a1a1a}
+.hd{background:#16241c;color:#fff;padding:20px 16px}
+.hd h1{font-size:20px;font-weight:700}
+.hd p{font-size:13.5px;opacity:.8;margin-top:5px;line-height:1.5}
+.uyari{background:#fff6e6;margin:12px;padding:14px 15px;border-radius:11px;font-size:13.5px;line-height:1.55;color:#7a5c1e;border-left:4px solid #e0a33a}
+.grp{background:#e8e8ec;margin:16px 12px 8px;padding:12px 14px;border-radius:11px;display:flex;justify-content:space-between;align-items:center}
+.grp b{font-size:14.5px}
+.say{font-size:12px;font-weight:700;color:#666;background:#fff;padding:4px 11px;border-radius:12px}
+.card{background:#fff;margin:9px 12px;border-radius:13px;padding:15px;border-left:5px solid #2ecc71;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.top{display:flex;justify-content:space-between;align-items:flex-start}
+.no{display:inline-block;background:#16241c;color:#fff;font-size:13px;font-weight:800;width:26px;height:26px;line-height:26px;text-align:center;border-radius:7px;margin-right:9px;vertical-align:5px}
+.kod{font-size:24px;font-weight:800;letter-spacing:-.5px}
+.renk{display:inline-block;background:#f0f0f3;padding:5px 13px;border-radius:7px;font-size:15px;font-weight:800;margin-top:7px}
+.sag{text-align:right}
+.ver{font-size:22px;font-weight:800;color:#1a8b4a}
+.sub{font-size:11.5px;color:#999;margin-top:3px}
+.vkod{font-size:13px;color:#333;font-family:ui-monospace,Menlo,monospace;margin-top:10px;background:#f2f2f5;padding:9px 11px;border-radius:7px;font-weight:700}
+.kis{background:#fff4e5;color:#a56a00;font-size:12.5px;font-weight:700;padding:6px 11px;border-radius:7px;margin-top:10px;display:inline-block}
+.ck{margin-top:12px;padding-top:12px;border-top:1px solid #eee;display:flex;gap:22px}
+.ck label{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:700;color:#555}
+.ck input{width:26px;height:26px;accent-color:#1a8b4a}
+.ck .y input{accent-color:#d0454c}
+.son{background:#16241c;color:#fff;margin:18px 12px;padding:18px;border-radius:12px;font-size:14.5px;line-height:1.65}
+.son b{color:#7ee2a8}
+.sab{background:#fff;margin:12px;padding:16px;border-radius:12px}
+.sab h3{font-size:15px;margin-bottom:10px;color:#16241c}
+.kbtn{display:block;width:100%;background:#1a8b4a;color:#fff;border:none;border-radius:9px;padding:14px;font-size:16px;font-weight:700;margin-bottom:12px;cursor:pointer}
+.sab pre{background:#f6f6f8;padding:14px;border-radius:9px;font-size:12.5px;line-height:1.85;white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace;border:1px solid #e8e8ec;user-select:all;-webkit-user-select:all}
+</style></head><body>
+<div class="hd"><h1>LEYLA KARAYEVA</h1>
+<p>Fuar siparişi 21.06 · Hiç sevkiyat yok · Stok kontrolü 11.08.2026<br><b>39 kalem · 236 adet ayrılacak</b></p></div>
+<div class="uyari">Her renk ayrı satır — ayırdıkça tek tek işaretle. Etiket: <b>BOSMENTI</b>. Sevke <b>ceket kılıfı + gömlek jelatini</b> eklenecek. Seri: triko 4 · gömlek/penye 6.</div>
+<div class="grp"><b>TRİKO — seri 4'lü</b><span class="say">13 kalem · 56 ad</span></div>
+<div class="card"><div class="top"><div><span class="no">1</span><span class="kod">27486</span><br><span class="renk">KAHVE</span></div>
+<div class="sag"><div class="ver">4 adet</div><div class="sub">1 seri</div></div></div>
+<div class="kis">⚠ Petrol yok — Nefti ikamesi Ali Bey onayında</div><div class="vkod">ŞK-27486.06 / 050141.06</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">2</span><span class="kod">27486</span><br><span class="renk">LACİ</span></div>
+<div class="sag"><div class="ver">4 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">ŞK-27486.05 / 050141.05</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">3</span><span class="kod">27495</span><br><span class="renk">PARLAMENT</span></div>
+<div class="sag"><div class="ver">4 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">ŞK-27495.44</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">4</span><span class="kod">27495</span><br><span class="renk">KEMİK</span></div>
+<div class="sag"><div class="ver">4 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">ŞK-27495 Kemik</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">5</span><span class="kod">27495</span><br><span class="renk">TABA</span></div>
+<div class="sag"><div class="ver">4 adet</div><div class="sub">1 seri</div></div></div>
+<div class="kis">⚠ ⚠ Stok 6 — son adetler</div><div class="vkod">ŞK-27495.169</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">6</span><span class="kod">27494</span><br><span class="renk">PARLAMENT</span></div>
+<div class="sag"><div class="ver">4 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">ŞK-27494.44</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">7</span><span class="kod">27494</span><br><span class="renk">LACİ</span></div>
+<div class="sag"><div class="ver">4 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">ŞK-27494.05</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">8</span><span class="kod">27494</span><br><span class="renk">KAHVE</span></div>
+<div class="sag"><div class="ver">8 adet</div><div class="sub">2 seri</div></div></div>
+<div class="kis">⚠ 2 seri</div><div class="vkod">ŞK-27494.06</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">9</span><span class="kod">28961</span><br><span class="renk">LACİ-KAHVE</span></div>
+<div class="sag"><div class="ver">4 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">ŞK-28961.251</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">10</span><span class="kod">27021</span><br><span class="renk">K.GRİ</span></div>
+<div class="sag"><div class="ver">4 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">ŞK-27021.47</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">11</span><span class="kod">27606</span><br><span class="renk">LACİ</span></div>
+<div class="sag"><div class="ver">4 adet</div><div class="sub">1 seri</div></div></div>
+<div class="kis">⚠ Siyah yok — defter: Laci varsa 1-1</div><div class="vkod">ŞK-27606.05</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">12</span><span class="kod">050136</span><br><span class="renk">MLJ KAHVE</span></div>
+<div class="sag"><div class="ver">4 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">ŞK-050136.189</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">13</span><span class="kod">050136</span><br><span class="renk">LACİ</span></div>
+<div class="sag"><div class="ver">4 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">ŞK-050136.05</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="grp"><b>GÖMLEK — seri 6'lı</b><span class="say">7 kalem · 42 ad</span></div>
+<div class="card"><div class="top"><div><span class="no">14</span><span class="kod">5950</span><br><span class="renk">LACİ</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">RS-5950.05</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">15</span><span class="kod">5960</span><br><span class="renk">LACİ</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">RS-5960.05</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">16</span><span class="kod">5280</span><br><span class="renk">BEYAZ</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">RS-5280.02</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">17</span><span class="kod">5280</span><br><span class="renk">SİYAH</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">RS-5280.01</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">18</span><span class="kod">6050</span><br><span class="renk">IVORY</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="kis">⚠ Krem ikamesi</div><div class="vkod">RS-6050.F19</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">19</span><span class="kod">6050</span><br><span class="renk">BEYAZ</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">RS-6050.02</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">20</span><span class="kod">6050</span><br><span class="renk">A.MAVİ</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">RS-6050.53</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="grp"><b>PENYE — seri 6'lı (battal da 6)</b><span class="say">19 kalem · 138 ad</span></div>
+<div class="card"><div class="top"><div><span class="no">21</span><span class="kod">7430</span><br><span class="renk">LACİ</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">SE-072150.05</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">22</span><span class="kod">7430</span><br><span class="renk">KAHVE</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="kis">⚠ ⚠ Akmaral da alıyor — stok yeter, sırayla</div><div class="vkod">SE-072150.06</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">23</span><span class="kod">7430</span><br><span class="renk">MARİN</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="kis">⚠ Çağla yok</div><div class="vkod">SE-072150.609</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">24</span><span class="kod">7200</span><br><span class="renk">KAHVE</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">SE-072100.06</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">25</span><span class="kod">7200</span><br><span class="renk">BEYAZ</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">SE-072100.02</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">26</span><span class="kod">7200</span><br><span class="renk">ÇAĞLA</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">SE-072100.94</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">27</span><span class="kod">7200</span><br><span class="renk">SİYAH</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">SE-072100.01</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">28</span><span class="kod">7200</span><br><span class="renk">BEJ</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="kis">⚠ ⚠ Stok TAM 6 — son seri</div><div class="vkod">SE-072100.09</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">29</span><span class="kod">7200</span><br><span class="renk">LACİ</span></div>
+<div class="sag"><div class="ver">12 adet</div><div class="sub">2 seri</div></div></div>
+<div class="kis">⚠ 2 seri</div><div class="vkod">SE-072100.05</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">30</span><span class="kod">6470</span><br><span class="renk">LACİ</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">KA-6470.05</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">31</span><span class="kod">6470</span><br><span class="renk">SİYAH</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">KA-6470.01</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">32</span><span class="kod">6470</span><br><span class="renk">KAHVE</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">KA-6470.06</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">33</span><span class="kod">6470</span><br><span class="renk">BEYAZ</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">KA-6470.02</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">34</span><span class="kod">6200</span><br><span class="renk">BEYAZ</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="vkod">KA-6200.02</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">35</span><span class="kod">6200</span><br><span class="renk">LACİ</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri</div></div></div>
+<div class="kis">⚠ Kahve stok 3 — girmedi</div><div class="vkod">KA-6200.05</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">36</span><span class="kod">7205 BT</span><br><span class="renk">LACİ</span></div>
+<div class="sag"><div class="ver">12 adet</div><div class="sub">2 seri</div></div></div>
+<div class="kis">⚠ 2 seri battal</div><div class="vkod">SE-072105.05</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">37</span><span class="kod">7205 BT</span><br><span class="renk">KAHVE</span></div>
+<div class="sag"><div class="ver">12 adet</div><div class="sub">2 seri</div></div></div>
+<div class="kis">⚠ 2 seri battal</div><div class="vkod">SE-072105.06</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">38</span><span class="kod">7205 BT</span><br><span class="renk">ÇAĞLA</span></div>
+<div class="sag"><div class="ver">12 adet</div><div class="sub">2 seri</div></div></div>
+<div class="kis">⚠ 2 seri battal</div><div class="vkod">SE-072105.94</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="card"><div class="top"><div><span class="no">39</span><span class="kod">7435 BT</span><br><span class="renk">MARİN</span></div>
+<div class="sag"><div class="ver">6 adet</div><div class="sub">1 seri battal · stok 30</div></div></div>
+<div class="kis">⚠ Çağla yok — sadece Marin gidiyor</div><div class="vkod">SE-072155.609</div>
+<div class="ck"><label><input type="checkbox"> <span>AYIRDIM</span></label><label class="y"><input type="checkbox"> <span>YOK</span></label></div></div>
+<div class="son"><b>İŞ BİTİNCE</b><br>Yeşil butona bas — <b>işaretlediklerin rapora otomatik yazılır</b> ve kopyalanır.<br>WhatsApp'ta Ali Bey'e yapıştır.</div>
+<div class="sab"><h3>📋 Rapor</h3>
+<button class="kbtn" onclick="kopyala()">📋 RAPORU OLUŞTUR + KOPYALA</button>
+<pre id="rapor">Önce yukarıda AYIRDIM / YOK işaretle, sonra yeşil butona bas.</pre></div>
+<script>
+var cards=[].slice.call(document.querySelectorAll('.card'));
+cards.forEach(function(c){var cbs=c.querySelectorAll('input[type=checkbox]');
+cbs[0].addEventListener('change',function(){if(this.checked)cbs[1].checked=false;});
+cbs[1].addEventListener('change',function(){if(this.checked)cbs[0].checked=false;});});
+function veri(c){var kod=c.querySelector('.kod').textContent.trim();
+var renk=c.querySelector('.renk').textContent.trim();
+var ver=c.querySelector('.ver').textContent.trim();
+var vkod=c.querySelector('.vkod')?c.querySelector('.vkod').textContent.trim():'';
+return kod+' '+renk+' — '+ver+' ('+vkod+')';}
+function kopyala(){var ayr=[],yok=[],bos=[];
+cards.forEach(function(c,i){var cbs=c.querySelectorAll('input[type=checkbox]');
+var s=(i+1)+'. '+veri(c);
+if(cbs[0].checked)ayr.push('\u2705 '+s);
+else if(cbs[1].checked)yok.push('\u274C '+s);
+else bos.push('\u2B1C '+s);});
+var L=['LEYLA — AYIRMA RAPORU','Tarih: '+new Date().toLocaleDateString('tr-TR'),''];
+L.push('AYRILDI ('+ayr.length+' kalem):');L=L.concat(ayr.length?ayr:['—']);
+L.push('','YOK ('+yok.length+' kalem):');L=L.concat(yok.length?yok:['—']);
+if(bos.length){L.push('','İŞARETLENMEDİ ('+bos.length+'):');L=L.concat(bos);}
+var t=L.join('\n');
+document.getElementById('rapor').textContent=t;
+function ok(){var b=document.querySelector('.kbtn');b.textContent='\u2713 KOPYALANDI — WhatsApp\'a yapıştır';b.style.background='#16241c';}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok).catch(function(){eski(t);ok();});}
+else{eski(t);ok();}}
+function eski(t){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);}
+</script></body></html>
