@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DANİER — Ayırma Listesi</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:#f4f4f6;color:#1c1c1e;padding-bottom:40px}
+  .header{background:#16241c;color:#fff;padding:18px 16px 14px}
+  .header h1{font-size:1.25rem;letter-spacing:.5px}
+  .header .sub{font-size:.85rem;color:#b8c4bc;margin-top:4px}
+  .uyari{background:#fff3cd;border-left:5px solid #e0a800;margin:12px;padding:12px;font-size:.9rem;border-radius:6px}
+  .grp{margin:18px 12px 6px;font-size:.95rem;font-weight:700;color:#16241c}
+  .kart{background:#fff;border-radius:10px;margin:10px 12px;padding:14px;border-left:5px solid #2ecc71;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  .kart .ust{display:flex;justify-content:space-between;align-items:flex-start}
+  .no{display:inline-block;background:#16241c;color:#fff;font-size:.75rem;font-weight:700;border-radius:50%;width:22px;height:22px;line-height:22px;text-align:center;margin-right:8px}
+  .kod{font-size:24px;font-weight:800;letter-spacing:.5px}
+  .renk{display:inline-block;background:#eef2ee;border-radius:5px;padding:2px 10px;font-size:.95rem;font-weight:600;margin-top:6px}
+  .adet{color:#1e8e4e;font-weight:800;font-size:1.15rem;text-align:right}
+  .stok{color:#8e8e93;font-size:.78rem;text-align:right;margin-top:2px}
+  .vkod{font-family:ui-monospace,Menlo,Consolas,monospace;background:#f1f1f3;color:#444;border-radius:6px;padding:6px 10px;font-size:.9rem;margin-top:10px;display:inline-block}
+  .cb{display:flex;gap:10px;margin-top:12px}
+  .cb label{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border:2px solid #d1d1d6;border-radius:8px;padding:10px;font-weight:700;font-size:.95rem;cursor:pointer;user-select:none}
+  .cb input{width:20px;height:20px;accent-color:#2ecc71}
+  .cb label.yok input{accent-color:#e74c3c}
+  .cb label.sec-ayir{border-color:#2ecc71;background:#eafaf1}
+  .cb label.sec-yok{border-color:#e74c3c;background:#fdecea}
+  .talimat{background:#16241c;color:#dfe8e1;margin:20px 12px 10px;padding:14px;border-radius:10px;font-size:.88rem;line-height:1.5}
+  .btn{display:block;width:calc(100% - 24px);margin:12px;background:#1e8e4e;color:#fff;border:none;border-radius:10px;padding:16px;font-size:1.05rem;font-weight:800;cursor:pointer}
+  .btn:active{background:#166b3a}
+  #sonuc{white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;background:#fff;margin:0 12px 20px;padding:12px;border-radius:8px;display:none;border:1px solid #d1d1d6}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>DANİER TULYAGANOV — Ayırma</h1>
+  <div class="sub">3 kalem · 18 adet ayrılacak · 11.08.2026</div>
+</div>
+
+<div class="uyari">⚠️ Her renk için AYIRDIM veya YOK işaretle. Hepsi bitince en alttaki yeşil butona bas, çıkan raporu kopyalayıp Ali Bey'e WhatsApp'tan gönder.</div>
+
+<div class="grp">7850 — Bisiklet Yaka İnterlok SERVALLİ Logolu (SE-07850) · 3 renk · 18 ad</div>
+
+<div class="kart" data-kod="7850" data-renk="KAHVE" data-adet="6">
+  <div class="ust">
+    <div><span class="no">1</span><span class="kod">7850</span><br><span class="renk">KAHVE</span></div>
+    <div><div class="adet">6 adet</div><div class="stok">1 seri · stok 60</div></div>
+  </div>
+  <div class="vkod">SE-07850.06</div>
+  <div class="cb">
+    <label class="ayir"><input type="checkbox" class="c-ayir">AYIRDIM ✅</label>
+    <label class="yok"><input type="checkbox" class="c-yok">YOK ❌</label>
+  </div>
+</div>
+
+<div class="kart" data-kod="7850" data-renk="LACİVERT" data-adet="6">
+  <div class="ust">
+    <div><span class="no">2</span><span class="kod">7850</span><br><span class="renk">LACİVERT</span></div>
+    <div><div class="adet">6 adet</div><div class="stok">1 seri · stok 118</div></div>
+  </div>
+  <div class="vkod">SE-07850.05</div>
+  <div class="cb">
+    <label class="ayir"><input type="checkbox" class="c-ayir">AYIRDIM ✅</label>
+    <label class="yok"><input type="checkbox" class="c-yok">YOK ❌</label>
+  </div>
+</div>
+
+<div class="kart" data-kod="7850" data-renk="BEYAZ" data-adet="6">
+  <div class="ust">
+    <div><span class="no">3</span><span class="kod">7850</span><br><span class="renk">BEYAZ</span></div>
+    <div><div class="adet">6 adet</div><div class="stok">1 seri · stok 55</div></div>
+  </div>
+  <div class="vkod">SE-07850.02</div>
+  <div class="cb">
+    <label class="ayir"><input type="checkbox" class="c-ayir">AYIRDIM ✅</label>
+    <label class="yok"><input type="checkbox" class="c-yok">YOK ❌</label>
+  </div>
+</div>
+
+<div class="talimat">
+  📦 Ayrılan mallar DANİER TULYAGANOV (Taşkent) sevk paketine eklenecek.<br>
+  🏷 Etiket: ürün üzerindeki SERVALLİ İnterlok logolu seri aynen gider.<br>
+  Seri: standart penye 6'lı (M1·L2·XL2·XXL1).
+</div>
+
+<button class="btn" onclick="rapor()">RAPORU OLUŞTUR + KOPYALA</button>
+<div id="sonuc"></div>
+
+<script>
+document.querySelectorAll('.kart').forEach(function(k){
+  var a=k.querySelector('.c-ayir'), y=k.querySelector('.c-yok');
+  var la=k.querySelector('label.ayir'), ly=k.querySelector('label.yok');
+  a.addEventListener('change',function(){ if(a.checked){y.checked=false;ly.classList.remove('sec-yok');la.classList.add('sec-ayir');} else la.classList.remove('sec-ayir'); });
+  y.addEventListener('change',function(){ if(y.checked){a.checked=false;la.classList.remove('sec-ayir');ly.classList.add('sec-yok');} else ly.classList.remove('sec-yok'); });
+});
+function rapor(){
+  var ay=[],yk=[],bos=[];
+  document.querySelectorAll('.kart').forEach(function(k){
+    var t=k.dataset.kod+' '+k.dataset.renk+' — '+k.dataset.adet+' ad';
+    if(k.querySelector('.c-ayir').checked) ay.push('✅ '+t);
+    else if(k.querySelector('.c-yok').checked) yk.push('❌ '+t);
+    else bos.push('⬜ '+t);
+  });
+  var m='DANİER AYIRMA RAPORU (11.08.2026)\n';
+  if(ay.length) m+='\nAYRILDI:\n'+ay.join('\n')+'\n';
+  if(yk.length) m+='\nYOK:\n'+yk.join('\n')+'\n';
+  if(bos.length) m+='\nİŞARETLENMEDİ:\n'+bos.join('\n')+'\n';
+  var s=document.getElementById('sonuc');
+  s.textContent=m; s.style.display='block';
+  if(navigator.clipboard){ navigator.clipboard.writeText(m).then(function(){ alert('Rapor kopyalandı — WhatsApp\'ta Ali Bey\'e yapıştır.'); }); }
+}
+</script>
+</body>
+</html>
