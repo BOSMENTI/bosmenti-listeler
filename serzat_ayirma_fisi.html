@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ŞERZAT NASREDDİNOV — Ayırma Listesi</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f4f4f6;padding-bottom:30px}
+.header{background:#16241c;color:#fff;padding:18px 16px}
+.header h1{font-size:1.25rem;letter-spacing:.5px}
+.header .sub{font-size:.85rem;opacity:.85;margin-top:4px}
+.uyari{background:#fff3cd;border-left:5px solid #e0a800;padding:12px 14px;margin:12px;border-radius:6px;font-size:.88rem;color:#5c4a00}
+.grp{margin:18px 12px 6px;font-size:.82rem;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.4px}
+.card{background:#fff;border-left:5px solid #2ecc71;border-radius:8px;margin:8px 12px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.card.kismi{border-left-color:#e67e22}
+.top{display:flex;justify-content:space-between;align-items:flex-start}
+.no{display:inline-block;background:#16241c;color:#fff;font-size:.75rem;font-weight:700;border-radius:12px;padding:2px 9px;margin-bottom:6px}
+.kod{font-size:24px;font-weight:800;color:#1a1a1a;line-height:1.1}
+.renk{display:inline-block;background:#eef;border:1px solid #ccd;border-radius:4px;padding:2px 8px;font-size:.9rem;font-weight:600;margin-top:5px;color:#334}
+.adet{text-align:right}
+.adet .n{font-size:1.35rem;font-weight:800;color:#1B4D2E}
+.adet .s{font-size:.75rem;color:#888;display:block;margin-top:2px}
+.vkod{background:#f0f0f2;border-radius:5px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;padding:5px 9px;margin-top:8px;color:#333;display:inline-block}
+.kis{background:#fff3cd;border-radius:5px;padding:6px 9px;font-size:.8rem;color:#6b5500;margin-top:8px}
+.acik{width:100%;margin-top:10px;border:1.5px solid #d5d5da;border-radius:7px;padding:9px 11px;font-size:.9rem;font-family:inherit;color:#333;background:#fafafa;resize:vertical;min-height:38px}
+.acik::placeholder{color:#aaa}
+.acik:focus{outline:none;border-color:#16241c;background:#fff}
+.chk{display:flex;gap:10px;margin-top:12px}
+.chk label{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;border:2px solid #ccc;border-radius:8px;padding:10px 0;font-weight:700;font-size:.92rem;cursor:pointer;user-select:none;color:#555;transition:.15s}
+.chk input{display:none}
+.chk label.ok.sel{background:#2ecc71;border-color:#2ecc71;color:#fff}
+.chk label.no2.sel{background:#e74c3c;border-color:#e74c3c;color:#fff}
+.talimat{background:#16241c;color:#fff;margin:20px 12px 10px;padding:14px 16px;border-radius:8px;font-size:.88rem;line-height:1.5}
+.btn{display:block;width:calc(100% - 24px);margin:12px;background:#2ecc71;color:#fff;border:none;border-radius:10px;padding:16px;font-size:1.05rem;font-weight:800;cursor:pointer;letter-spacing:.3px}
+.btn:active{background:#27ae60}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#16241c;color:#fff;padding:10px 22px;border-radius:20px;font-size:.9rem;opacity:0;transition:.3s;pointer-events:none}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>ŞERZAT NASREDDİNOV — AYIRMA</h1>
+  <div class="sub">8 kalem · 50 adet ayrılacak · SERVALLİ (tümü SE kodu) · 12.08.2026</div>
+</div>
+
+<div class="uyari">⚠️ <b>Her rengi ayrı işaretle.</b> Ayrılan mal rafa geri konmaz, ŞERZAT koli alanına alınır. Etiket: <b>SERVALLİ</b>. Turuncu şeritli kartlar KISMİ — stok istenen kadar yok, yazan adet kadar ayır.</div>
+
+<div class="grp">Gömlek Battal · 1 renk · 4 ad</div>
+
+<div class="card" data-k="5285 Bt A.Mavi">
+  <div class="top"><div><span class="no">1</span><div class="kod">5285 BT</div><span class="renk">A.MAVİ</span></div>
+  <div class="adet"><span class="n">4 adet</span><span class="s">1 seri (battal 4'lü) · stok 19</span></div></div>
+  <div class="vkod">SE-060305.53</div>
+  <textarea class="acik" rows="1" placeholder="Açıklama (bu model/renk için not — eksik, hasar, farklı yer vb.)"></textarea>
+  <div class="chk"><label class="ok"><input type="checkbox">✅ AYIRDIM</label><label class="no2"><input type="checkbox">❌ YOK</label></div>
+</div>
+
+<div class="grp">Pantolon · 1 renk · 10 ad</div>
+
+<div class="card" data-k="1660 Kahve">
+  <div class="top"><div><span class="no">2</span><div class="kod">1660</div><span class="renk">KAHVE</span></div>
+  <div class="adet"><span class="n">10 adet</span><span class="s">1 seri (pantolon 10'lu) · stok 30</span></div></div>
+  <div class="vkod">SE-01660.06</div>
+  <textarea class="acik" rows="1" placeholder="Açıklama (bu model/renk için not — eksik, hasar, farklı yer vb.)"></textarea>
+  <div class="chk"><label class="ok"><input type="checkbox">✅ AYIRDIM</label><label class="no2"><input type="checkbox">❌ YOK</label></div>
+</div>
+
+<div class="grp">7200 — Bisiklet St (SE-072100) · 3 renk · 18 ad</div>
+
+<div class="card" data-k="7200 Marin">
+  <div class="top"><div><span class="no">3</span><div class="kod">7200</div><span class="renk">MARİN</span></div>
+  <div class="adet"><span class="n">6 adet</span><span class="s">1 seri · stok 152</span></div></div>
+  <div class="vkod">SE-072100.609</div>
+  <textarea class="acik" rows="1" placeholder="Açıklama (bu model/renk için not — eksik, hasar, farklı yer vb.)"></textarea>
+  <div class="chk"><label class="ok"><input type="checkbox">✅ AYIRDIM</label><label class="no2"><input type="checkbox">❌ YOK</label></div>
+</div>
+
+<div class="card" data-k="7200 Siyah">
+  <div class="top"><div><span class="no">4</span><div class="kod">7200</div><span class="renk">SİYAH</span></div>
+  <div class="adet"><span class="n">6 adet</span><span class="s">1 seri · stok 108</span></div></div>
+  <div class="vkod">SE-072100.01</div>
+  <textarea class="acik" rows="1" placeholder="Açıklama (bu model/renk için not — eksik, hasar, farklı yer vb.)"></textarea>
+  <div class="chk"><label class="ok"><input type="checkbox">✅ AYIRDIM</label><label class="no2"><input type="checkbox">❌ YOK</label></div>
+</div>
+
+<div class="card" data-k="7200 Bordo">
+  <div class="top"><div><span class="no">5</span><div class="kod">7200</div><span class="renk">BORDO</span></div>
+  <div class="adet"><span class="n">6 adet</span><span class="s">1 seri · stok 108</span></div></div>
+  <div class="vkod">SE-072100.29</div>
+  <textarea class="acik" rows="1" placeholder="Açıklama (bu model/renk için not — eksik, hasar, farklı yer vb.)"></textarea>
+  <div class="chk"><label class="ok"><input type="checkbox">✅ AYIRDIM</label><label class="no2"><input type="checkbox">❌ YOK</label></div>
+</div>
+
+<div class="grp">7205 — Bisiklet Battal (SE-072105) · 3 renk · 18 ad</div>
+
+<div class="card" data-k="7205 Bt Marin">
+  <div class="top"><div><span class="no">6</span><div class="kod">7205 BT</div><span class="renk">MARİN</span></div>
+  <div class="adet"><span class="n">6 adet</span><span class="s">1 seri · stok 83</span></div></div>
+  <div class="vkod">SE-072105.609</div>
+  <textarea class="acik" rows="1" placeholder="Açıklama (bu model/renk için not — eksik, hasar, farklı yer vb.)"></textarea>
+  <div class="chk"><label class="ok"><input type="checkbox">✅ AYIRDIM</label><label class="no2"><input type="checkbox">❌ YOK</label></div>
+</div>
+
+<div class="card" data-k="7205 Bt Siyah">
+  <div class="top"><div><span class="no">7</span><div class="kod">7205 BT</div><span class="renk">SİYAH</span></div>
+  <div class="adet"><span class="n">6 adet</span><span class="s">1 seri · stok 90</span></div></div>
+  <div class="vkod">SE-072105.01</div>
+  <textarea class="acik" rows="1" placeholder="Açıklama (bu model/renk için not — eksik, hasar, farklı yer vb.)"></textarea>
+  <div class="chk"><label class="ok"><input type="checkbox">✅ AYIRDIM</label><label class="no2"><input type="checkbox">❌ YOK</label></div>
+</div>
+
+<div class="card" data-k="7205 Bt Bordo">
+  <div class="top"><div><span class="no">8</span><div class="kod">7205 BT</div><span class="renk">BORDO</span></div>
+  <div class="adet"><span class="n">6 adet</span><span class="s">1 seri · stok 60</span></div></div>
+  <div class="vkod">SE-072105.29</div>
+  <textarea class="acik" rows="1" placeholder="Açıklama (bu model/renk için not — eksik, hasar, farklı yer vb.)"></textarea>
+  <div class="chk"><label class="ok"><input type="checkbox">✅ AYIRDIM</label><label class="no2"><input type="checkbox">❌ YOK</label></div>
+</div>
+
+<div class="talimat">
+📦 Bitince aşağıdaki butona bas, çıkan raporu <b>WhatsApp'tan Ali Bey'e</b> gönder. İşaretlemediğin kalemler rapora "bakılmadı" olarak düşer.
+</div>
+
+<button class="btn" onclick="rapor()">📋 RAPORU OLUŞTUR + KOPYALA</button>
+<div class="toast" id="toast">Rapor kopyalandı ✅</div>
+
+<script>
+document.querySelectorAll('.chk').forEach(function(g){
+  var labs=g.querySelectorAll('label');
+  labs.forEach(function(l){
+    l.addEventListener('click',function(e){
+      e.preventDefault();
+      var was=l.classList.contains('sel');
+      labs.forEach(function(x){x.classList.remove('sel')});
+      if(!was)l.classList.add('sel');
+    });
+  });
+});
+function rapor(){
+  var ok=[],yok=[],bos=[];
+  document.querySelectorAll('.card').forEach(function(c){
+    var k=c.getAttribute('data-k');
+    var a=c.querySelector('.adet .n').textContent;
+    var not_=(c.querySelector('.acik')?c.querySelector('.acik').value.trim():'');
+    var satir=k+' — '+a+(not_?' | NOT: '+not_:'');
+    if(c.querySelector('.ok.sel'))ok.push(satir);
+    else if(c.querySelector('.no2.sel'))yok.push(satir);
+    else bos.push(satir);
+  });
+  var t='SERZAT AYIRMA RAPORU ('+new Date().toLocaleDateString('tr-TR')+')\n';
+  t+='\n✅ AYRILDI ('+ok.length+'):\n'+(ok.length?ok.join('\n'):'—');
+  t+='\n\n❌ YOK ('+yok.length+'):\n'+(yok.length?yok.join('\n'):'—');
+  t+='\n\n⬜ BAKILMADI ('+bos.length+'):\n'+(bos.length?bos.join('\n'):'—');
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(gost,function(){fallback(t)});
+  }else{fallback(t)}
+}
+function fallback(t){
+  var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);
+  ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta);gost();
+}
+function gost(){
+  var x=document.getElementById('toast');x.classList.add('show');
+  setTimeout(function(){x.classList.remove('show')},2000);
+}
+</script>
+</body>
+</html>
