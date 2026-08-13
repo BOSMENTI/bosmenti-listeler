@@ -16,6 +16,9 @@ header h1{margin:0;font-size:18px}header .m{font-size:12px;opacity:.85;margin-to
 .kart.ayrildi{outline:2px solid #2ecc71;background:#f2f8f4}
 .kart.yok{outline:2px solid #e74c3c;background:#fdf2f1}
 .mini{font-size:12px;color:#6b6353}
+#safariWarn{background:#fdf3d7;border:2px solid #f1c40f;border-radius:10px;padding:12px 14px;margin-bottom:12px;font-size:13.5px;line-height:1.5}
+#safariWarn b{color:#a05a00}
+#safariWarn .adim{display:block;margin-top:6px;font-weight:700}
 #altbar{position:fixed;left:0;right:0;bottom:0;background:#16241c;color:#fff;padding:10px 14px;display:flex;align-items:center;gap:12px;z-index:9}
 #altbar span{font-size:12px;flex:1}
 #altbar button{background:#2ecc71;border:0;color:#fff;font-weight:800;font-size:14px;padding:12px 16px;border-radius:8px}
@@ -26,11 +29,18 @@ header h1{margin:0;font-size:18px}header .m{font-size:12px;opacity:.85;margin-to
 #reportOverlay.open{display:flex}
 #reportBox{background:#fff;width:100%;border-radius:14px 14px 0 0;padding:16px;max-height:80vh;display:flex;flex-direction:column;gap:10px;overflow:auto}
 #reportBox h3{margin:0;font-size:16px;color:#16241c}
-#reportBox textarea{width:100%;box-sizing:border-box;height:220px;font-family:monospace;font-size:13px;border:1px solid #ddd;border-radius:8px;padding:8px}
-#reportBox a.wa{display:block;text-align:center;background:#25D366;color:#fff;font-weight:800;padding:14px;border-radius:8px;text-decoration:none;font-size:15px}
+#reportBox .tip{font-size:12.5px;color:#6b6353;background:#fdf3d7;border-left:4px solid #f1c40f;padding:8px 10px;border-radius:0 6px 6px 0}
+#reportBox textarea{width:100%;box-sizing:border-box;height:180px;font-family:monospace;font-size:13px;border:2px solid #2ecc71;border-radius:8px;padding:8px}
+#reportBox a.wa{display:block;text-align:center;background:#25D366;color:#fff;font-weight:800;padding:16px;border-radius:8px;text-decoration:none;font-size:16px}
 #reportBox button.copy{background:#1B4D2E;color:#fff;border:0;padding:12px;border-radius:8px;font-weight:700;font-size:14px}
+#reportBox #copyFail{display:none;background:#fdecea;border-left:4px solid #e74c3c;padding:8px 10px;font-size:12.5px;border-radius:0 6px 6px 0}
 #reportBox button.close{background:none;border:0;color:#888;padding:8px;font-size:13px}
 </style></head><body>
+<div id="safariWarn">⚠️ <b>Bu sayfayı WhatsApp içinde açtıysan raporu gönderemezsin.</b>
+<span class="adim">1. Ekranın altındaki veya üstündeki <b>paylaş simgesine</b> (kare + yukarı ok) dokun</span>
+<span class="adim">2. <b>"Safari'de Aç"</b> seç</span>
+<span class="adim">3. Sayfa Safari'de yeniden açılınca bu uyarı kaybolur, devam et</span>
+</div>
 <header><h1>FERHAT BEKMATİEV — Ayırma Ekranı</h1>
 <div class="m">Cari 2179 · Semey</div>
 <div class="m">Fuar fişleri: A0000035 (07.07, 502) + A0000140 (04.08, 88) = 590 ad · Stok çekimi: 13.08.2026 16:53 İstanbul</div>
@@ -91,9 +101,11 @@ header h1{margin:0;font-size:18px}header .m{font-size:12px;opacity:.85;margin-to
 
 <div id="reportOverlay"><div id="reportBox">
 <h3>Rapor hazır</h3>
+<a id="waLink" class="wa" href="#" target="_blank">📲 WHATSAPP'TA AÇ VE GÖNDER (Ali Dark)</a>
+<div class="tip">Yukarıdaki yeşil buton en garanti yol — direkt WhatsApp'ı mesaj hazır şekilde açar, kopyalamaya gerek kalmaz.</div>
 <textarea id="reportText" readonly></textarea>
-<a id="waLink" class="wa" href="#" target="_blank">WHATSAPP'TA AÇ VE GÖNDER (Ali Dark)</a>
-<button class="copy" onclick="copyReport()">METNİ KOPYALA</button>
+<button class="copy" onclick="copyReport()">METNİ KOPYALA (yedek yöntem)</button>
+<div id="copyFail">Otomatik kopyalama bu tarayıcıda çalışmadı. Yukarıdaki kutudaki metne <b>parmağını basılı tut → Tümünü Seç → Kopyala</b> yap.</div>
 <button class="close" onclick="closeReport()">Kapat</button>
 </div></div>
 
@@ -170,19 +182,39 @@ function generateReport(){
   document.getElementById('waLink').href = 'https://wa.me/905312639498?text='+encodeURIComponent(txt);
   document.getElementById('reportOverlay').classList.add('open');
 }
-function closeReport(){ document.getElementById('reportOverlay').classList.remove('open'); }
-function copyReport(){
+function closeReport(){
+  document.getElementById('reportOverlay').classList.remove('open');
+  document.getElementById('copyFail').style.display='none';
+}
+async function copyReport(){
   const ta = document.getElementById('reportText');
+  const btn = document.querySelector('#reportBox button.copy');
+  const fail = document.getElementById('copyFail');
+  fail.style.display='none';
   ta.focus(); ta.select(); ta.setSelectionRange(0,999999);
   let ok=false;
-  try{ ok = document.execCommand('copy'); }catch(e){}
-  if(!ok && navigator.clipboard){ navigator.clipboard.writeText(ta.value).catch(()=>{}); }
-  const btn = document.querySelector('#reportBox button.copy');
-  btn.textContent = 'KOPYALANDI ✓';
-  setTimeout(()=>{ btn.textContent='METNİ KOPYALA'; }, 1500);
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    try{ await navigator.clipboard.writeText(ta.value); ok=true; }catch(e){ ok=false; }
+  }
+  if(!ok){
+    try{ ok = document.execCommand('copy'); }catch(e){ ok=false; }
+  }
+  if(ok){
+    btn.textContent = 'KOPYALANDI ✓';
+    setTimeout(()=>{ btn.textContent='METNİ KOPYALA (yedek yöntem)'; }, 1500);
+  }else{
+    fail.style.display='block';
+  }
 }
 
-window.addEventListener('DOMContentLoaded', loadState);
+window.addEventListener('DOMContentLoaded', function(){
+  loadState();
+  // Safari mi WhatsApp içi mi tahmini kontrol: gerçek Safari'de navigator.share genelde var, WhatsApp içi webview'da yok
+  var warn = document.getElementById('safariWarn');
+  if(warn && typeof navigator.share === 'function'){
+    warn.style.display = 'none';
+  }
+});
 window.addEventListener('pageshow', loadState); // iOS bfcache'ten dönünce de yükle
 document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='visible') loadState(); });
 </script>
