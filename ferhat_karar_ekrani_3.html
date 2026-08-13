@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FERHAT BEKMATİEV — Karar Ekranı</title><style>
+body{font-family:-apple-system,system-ui,sans-serif;background:#f4f4f6;color:#23201A;margin:0;padding:12px;font-size:15px;padding-bottom:80px}
+header{background:#16241c;color:#fff;padding:14px;border-radius:10px;margin-bottom:12px}
+header h1{margin:0;font-size:18px}header .m{font-size:12px;opacity:.85;margin-top:4px}
+.blok{margin:14px 0}.blok h2{font-size:13px;letter-spacing:.5px;color:#1B4D2E;border-bottom:2px solid #B8946A;padding-bottom:4px}
+.kart{background:#fff;border-radius:8px;padding:10px 12px;margin:8px 0;border-left:5px solid #2ecc71;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.kart.mor{border-left-color:#8e44ad}.kart.gri{border-left-color:#95a5a6}
+.kart.secili{outline:3px solid #1B4D2E;background:#f2f8f4}
+.kod{font-size:19px;font-weight:700}.renk{font-weight:600}.sag{float:right;text-align:right}
+.adet{color:#1B4D2E;font-weight:700;font-size:17px}.det{font-size:12px;color:#6b6353;margin-top:3px}
+.uyari{background:#fdf3d7;border-left:4px solid #f1c40f;padding:8px 10px;font-size:12.5px;border-radius:0 6px 6px 0;margin:6px 0}
+.top{background:#1B4D2E;color:#fff;border-radius:8px;padding:10px 12px;font-weight:700;margin-top:8px}
+.mini{font-size:12px;color:#6b6353}
+#altbar{position:fixed;left:0;right:0;bottom:0;background:#16241c;color:#fff;padding:10px 14px;display:flex;align-items:center;gap:12px;z-index:9}
+#altbar button{flex:1;background:#2ecc71;border:0;color:#fff;font-weight:800;font-size:15px;padding:12px;border-radius:8px}
+#altbar button:disabled{background:#555}
+</style></head><body>
+<header><h1>FERHAT BEKMATİEV — Karar Ekranı</h1>
+<div class="m">Cari 2179 · Semey</div>
+<div class="m">Fuar fişleri: A0000035 (07.07, 502) + A0000140 (04.08, 88) = 590 ad · Stok çekimi: 13.08.2026 16:53 İstanbul</div></header>
+
+<div class="blok" id="a2blok"><h2>A2 — STOKTAN ÇIKABİLİR (karta dokun = seç) · 3 kalem / 16 adet</h2>
+<div class="kart"><span class="sag"><span class="adet">8 ad</span><div class="det">2 seri × 4</div></span><span class="kod">050104</span> <span class="renk">NEFTİ</span><div class="det">ŞK-050104.95 · serbest 67</div></div><div class="kart"><span class="sag"><span class="adet">4 ad</span><div class="det">1 seri × 4</div></span><span class="kod">28642</span> <span class="renk">K.GRİ</span><div class="det">ŞK-28642.47 · serbest 31</div></div><div class="kart"><span class="sag"><span class="adet">4 ad</span><div class="det">1 seri × 4 (kısmi, sipariş 8)</div></span><span class="kod">050106</span> <span class="renk">NEFTİ</span><div class="det">ŞK-050106.95 · serbest 5</div><div class=uyari>Sipariş 8, stok sadece 5 — 1 seri (4) çıkar</div></div>
+<div class="top">A2 TOPLAM: 16 adet</div></div>
+
+<div class="blok"><h2>B — KARAR / ONAY BEKLEYEN</h2><div class="kart mor"><span class="kod">1640</span> <span class="renk">LACİVERT</span> — Darko kararı: 1670 koduyla ikame kapandı (13.08 teyitli)</div></div>
+<div class="blok"><h2>C — ÜRETİM / ANOMALİ (~640 ad)</h2><div class="kart gri"><div class="det">
+<b>Anomali:</b> 7350 Laci+Gri 12 · 050106 Parlament 4 · 27486 Mavi 8 · 28642 Siyah 4<br>
+<b>Sıfır stok (~620 ad):</b> penye bloğu 7430/7435/7910/7915/7410/7415/7010/7070/6950/6930/6730/6940/6945 · 6980/6960/7970 · ceket 3210/3230/3190 · 1190 Laci · 1690 · 1630 · İkili Takım 320/350 · 29169/29156/29197 · 27486 Petrol · 27494 Cam Mavisi</div></div></div>
+
+<div class="mini">Sipariş 1.230 ad / fiş 590 ad / A2 16 ad. Fiyat bu belgede yer almaz.</div>
+
+<div id="altbar"><span id="selinfo" style="font-size:13px">0 seçili</span>
+<button id="genbtn" onclick="uret()" disabled>AYIRMA LİSTESİ ÜRET</button></div>
+<script>
+const ITEMS=[{"id": 1, "kod": "050104", "vkod": "ŞK-050104.95", "renk": "NEFTİ", "adet": 8, "seri": "2 seri × 4", "stok": 67, "not": ""}, {"id": 2, "kod": "28642", "vkod": "ŞK-28642.47", "renk": "K.GRİ", "adet": 4, "seri": "1 seri × 4", "stok": 31, "not": ""}, {"id": 3, "kod": "050106", "vkod": "ŞK-050106.95", "renk": "NEFTİ", "adet": 4, "seri": "1 seri × 4 (kısmi, sipariş 8)", "stok": 5, "not": "Sipariş 8, stok sadece 5 — 1 seri (4) çıkar"}];
+const sel=new Set();
+function renderSel(){let t=0,k=0;ITEMS.forEach(i=>{if(sel.has(i.id)){t+=i.adet;k++}});
+ document.getElementById('selinfo').textContent=k+" kalem · "+t+" adet seçili";
+ document.getElementById('genbtn').disabled=k===0;}
+function toggle(id,el){if(sel.has(id)){sel.delete(id);el.classList.remove('secili')}else{sel.add(id);el.classList.add('secili')}renderSel();}
+
+function uret(){
+  const chosen = ITEMS.filter(i=>sel.has(i.id));
+  const NL = String.fromCharCode(10);
+
+  // Ayırma ekranı (depocu için) tek parça, self-contained HTML üret
+  const cardsHtml = chosen.map((i,n) => (
+    '<div class="kart" data-id="'+(n+1)+'">' +
+    '<span class="sag"><span class="adet">'+i.adet+' ad</span><div class="det">'+i.seri+'</div></span>' +
+    '<span class="kod">'+i.kod+'</span> <span class="renk">'+i.renk+'</span>' +
+    '<div class="vkod">'+i.vkod+' · serbest '+i.stok+'</div>' +
+    (i.not ? '<div class="uyari">'+i.not+'</div>' : '') +
+    '<div class="cbrow">' +
+    '<label><input type="checkbox" class="ay" onchange="mark(this,\'ayrildi\')"> AYIRDIM</label>' +
+    '<label><input type="checkbox" class="yok" onchange="mark(this,\'yok\')"> YOK</label>' +
+    '</div>' +
+    '<textarea placeholder="Açıklama (isteğe bağlı)" oninput="saveState()"></textarea>' +
+    '</div>'
+  )).join(NL);
+
+  const doc = [
+'<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
+'<title>FERHAT — Ayırma Ekranı</title><style>',
+'body{font-family:-apple-system,system-ui,sans-serif;background:#f4f4f6;color:#23201A;margin:0;padding:12px;font-size:15px;padding-bottom:90px}',
+'header{background:#16241c;color:#fff;padding:14px;border-radius:10px;margin-bottom:12px}',
+'header h1{margin:0;font-size:18px}header .m{font-size:12px;opacity:.85;margin-top:4px}',
+'#safariWarn{background:#fdf3d7;border:2px solid #f1c40f;border-radius:10px;padding:12px 14px;margin-bottom:12px;font-size:13.5px;line-height:1.5}',
+'#safariWarn b{color:#a05a00} #safariWarn .adim{display:block;margin-top:6px;font-weight:700}',
+'.kart{background:#fff;border-radius:8px;padding:10px 12px;margin:8px 0;border-left:5px solid #2ecc71;box-shadow:0 1px 2px rgba(0,0,0,.06)}',
+'.kod{font-size:19px;font-weight:700}.renk{font-weight:600}.sag{float:right;text-align:right}',
+'.adet{color:#1B4D2E;font-weight:700;font-size:17px}.det{font-size:12px;color:#6b6353;margin-top:3px}',
+'.uyari{background:#fdf3d7;border-left:4px solid #f1c40f;padding:8px 10px;font-size:12.5px;border-radius:0 6px 6px 0;margin:6px 0}',
+'.vkod{font-family:monospace;background:#eee;display:inline-block;padding:3px 8px;border-radius:5px;margin:6px 0;font-size:13px}',
+'.cbrow{margin:8px 0;clear:both}.cbrow label{margin-right:18px;font-weight:700;font-size:15px}',
+'.cbrow input{width:20px;height:20px;vertical-align:middle}',
+'.kart textarea{width:100%;box-sizing:border-box;border:1px solid #ddd;border-radius:6px;padding:6px;font-size:13px;min-height:32px;margin-top:4px}',
+'.kart.ayrildi{outline:2px solid #2ecc71;background:#f2f8f4}.kart.yok{outline:2px solid #e74c3c;background:#fdf2f1}',
+'#altbar{position:fixed;left:0;right:0;bottom:0;background:#16241c;color:#fff;padding:10px 14px;display:flex;align-items:center;gap:12px;z-index:9}',
+'#altbar span{font-size:12px;flex:1} #altbar button{background:#2ecc71;border:0;color:#fff;font-weight:800;font-size:14px;padding:12px 16px;border-radius:8px}',
+'.savedtag{font-size:10px;color:#2ecc71;margin-left:6px;opacity:0;transition:opacity .3s} .savedtag.show{opacity:1}',
+'#reportOverlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;display:none;align-items:flex-end;} #reportOverlay.open{display:flex}',
+'#reportBox{background:#fff;width:100%;border-radius:14px 14px 0 0;padding:16px;max-height:80vh;display:flex;flex-direction:column;gap:10px;overflow:auto}',
+'#reportBox h3{margin:0;font-size:16px;color:#16241c}',
+'#reportBox .tip{font-size:12.5px;color:#6b6353;background:#fdf3d7;border-left:4px solid #f1c40f;padding:8px 10px;border-radius:0 6px 6px 0}',
+'#reportBox textarea{width:100%;box-sizing:border-box;height:180px;font-family:monospace;font-size:13px;border:2px solid #2ecc71;border-radius:8px;padding:8px}',
+'#reportBox a.wa{display:block;text-align:center;background:#25D366;color:#fff;font-weight:800;padding:16px;border-radius:8px;text-decoration:none;font-size:16px}',
+'#reportBox button.copy{background:#1B4D2E;color:#fff;border:0;padding:12px;border-radius:8px;font-weight:700;font-size:14px}',
+'#reportBox #copyFail{display:none;background:#fdecea;border-left:4px solid #e74c3c;padding:8px 10px;font-size:12.5px;border-radius:0 6px 6px 0}',
+'#reportBox button.close{background:none;border:0;color:#888;padding:8px;font-size:13px}',
+'</style></head><body>',
+'<div id="safariWarn">⚠️ <b>Bu sayfayı WhatsApp içinde açtıysan raporu gönderemezsin.</b>',
+'<span class="adim">1. Paylaş simgesine (kare + yukarı ok) dokun</span>',
+'<span class="adim">2. "Safari\'de Aç" seç</span>',
+'<span class="adim">3. Sayfa Safari\'de açılınca bu uyarı kaybolur</span></div>',
+'<header><h1>FERHAT — AYIRMA EKRANI</h1><div class="m">'+chosen.length+' kalem · '+chosen.reduce((a,i)=>a+i.adet,0)+' adet · 13.08.2026</div></header>',
+cardsHtml,
+'<div id="altbar"><span id="selinfo">0/'+chosen.length+' işaretlendi <span id="savedtag" class="savedtag">✓ kaydedildi</span></span>',
+'<button onclick="generateReport()">RAPORU OLUŞTUR</button></div>',
+'<div id="reportOverlay"><div id="reportBox"><h3>Rapor hazır</h3>',
+'<a id="waLink" class="wa" href="#" target="_blank">📲 WHATSAPP\'TA AÇ VE GÖNDER (Ali Dark)</a>',
+'<div class="tip">Yukarıdaki yeşil buton en garanti yol.</div>',
+'<textarea id="reportText" readonly></textarea>',
+'<button class="copy" onclick="copyReport()">METNİ KOPYALA (yedek)</button>',
+'<div id="copyFail">Otomatik kopyalama çalışmadı. Kutudaki metne basılı tut → Tümünü Seç → Kopyala.</div>',
+'<button class="close" onclick="closeReport()">Kapat</button></div></div>',
+'<scr'+'ipt>',
+'const STORAGE_KEY = "ferhat_ayirma_13082026";',
+'function saveState(){',
+'  const cards = document.querySelectorAll(".kart[data-id]"); const state = {};',
+'  cards.forEach(c=>{ const id=c.dataset.id; state[id]={ay:c.querySelector(".ay").checked, yok:c.querySelector(".yok").checked, not:c.querySelector("textarea").value}; });',
+'  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));',
+'  const tag=document.getElementById("savedtag"); tag.classList.add("show"); setTimeout(()=>tag.classList.remove("show"),900);',
+'  renderSelInfo();',
+'}',
+'function loadState(){',
+'  const raw=localStorage.getItem(STORAGE_KEY); if(!raw) return;',
+'  let state; try{ state=JSON.parse(raw); }catch(e){ return; }',
+'  document.querySelectorAll(".kart[data-id]").forEach(c=>{',
+'    const s=state[c.dataset.id]; if(!s) return;',
+'    c.querySelector(".ay").checked=!!s.ay; c.querySelector(".yok").checked=!!s.yok; c.querySelector("textarea").value=s.not||"";',
+'    if(s.ay) c.classList.add("ayrildi"); if(s.yok) c.classList.add("yok");',
+'  });',
+'  renderSelInfo();',
+'}',
+'function mark(el,cls){',
+'  const card=el.closest(".kart"); const other = cls==="ayrildi" ? card.querySelector(".yok") : card.querySelector(".ay");',
+'  if(el.checked) other.checked=false;',
+'  card.classList.remove("ayrildi","yok");',
+'  if(card.querySelector(".ay").checked) card.classList.add("ayrildi");',
+'  if(card.querySelector(".yok").checked) card.classList.add("yok");',
+'  saveState();',
+'}',
+'function renderSelInfo(){',
+'  const cards=document.querySelectorAll(".kart[data-id]"); let done=0;',
+'  cards.forEach(c=>{ if(c.querySelector(".ay").checked||c.querySelector(".yok").checked) done++; });',
+'  document.getElementById("selinfo").innerHTML = done+"/"+cards.length+" işaretlendi <span id=\'savedtag\' class=\'savedtag\'>✓ kaydedildi</span>";',
+'}',
+'function generateReport(){',
+'  const cards=document.querySelectorAll(".kart[data-id]"); const NL=String.fromCharCode(10);',
+'  let ay=[],yok=[],bos=[];',
+'  cards.forEach(c=>{',
+'    const kod=c.querySelector(".kod").textContent, renk=c.querySelector(".renk").textContent, adet=c.querySelector(".adet").textContent;',
+'    const not_=c.querySelector("textarea").value.trim();',
+'    const a=c.querySelector(".ay").checked, y=c.querySelector(".yok").checked;',
+'    let line=kod+" "+renk+" — "+adet+(not_?" | NOT: "+not_:"");',
+'    if(a) ay.push("✅ "+line); else if(y) yok.push("❌ "+line); else bos.push("⬜ "+line);',
+'  });',
+'  const txt="FERHAT AYIRMA RAPORU"+NL+NL+ay.join(NL)+(yok.length?NL+NL+yok.join(NL):"")+(bos.length?NL+NL+bos.join(NL):"");',
+'  document.getElementById("reportText").value=txt;',
+'  document.getElementById("waLink").href="https://wa.me/905312639498?text="+encodeURIComponent(txt);',
+'  document.getElementById("reportOverlay").classList.add("open");',
+'}',
+'function closeReport(){ document.getElementById("reportOverlay").classList.remove("open"); document.getElementById("copyFail").style.display="none"; }',
+'async function copyReport(){',
+'  const ta=document.getElementById("reportText"); const btn=document.querySelector("#reportBox button.copy"); const fail=document.getElementById("copyFail");',
+'  fail.style.display="none"; ta.focus(); ta.select(); ta.setSelectionRange(0,999999);',
+'  let ok=false;',
+'  if(navigator.clipboard && navigator.clipboard.writeText){ try{ await navigator.clipboard.writeText(ta.value); ok=true; }catch(e){ ok=false; } }',
+'  if(!ok){ try{ ok=document.execCommand("copy"); }catch(e){ ok=false; } }',
+'  if(ok){ btn.textContent="KOPYALANDI ✓"; setTimeout(()=>{ btn.textContent="METNİ KOPYALA (yedek)"; },1500); } else { fail.style.display="block"; }',
+'}',
+'window.addEventListener("DOMContentLoaded", function(){',
+'  loadState();',
+'  var warn=document.getElementById("safariWarn");',
+'  if(warn && typeof navigator.share === "function"){ warn.style.display="none"; }',
+'});',
+'window.addEventListener("pageshow", loadState);',
+'document.addEventListener("visibilitychange", function(){ if(document.visibilityState==="visible") loadState(); });',
+'</scr'+'ipt></body></html>'
+  ].join(NL);
+
+  const blob = new Blob([doc], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'ferhat_ayirma_ekrani.html';
+  a.click();
+}
+
+window.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('#a2blok .kart').forEach(function(el,idx){
+    el.style.cursor='pointer';
+    el.addEventListener('click', function(){ toggle(ITEMS[idx].id, el); });
+  });
+  renderSel();
+});
+</script></body></html>
