@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FERHAT BEKMATİEV — Karar Ekranı</title><style>
+body{font-family:-apple-system,system-ui,sans-serif;background:#f4f4f6;color:#23201A;margin:0;padding:12px;font-size:15px;padding-bottom:80px}
+header{background:#16241c;color:#fff;padding:14px;border-radius:10px;margin-bottom:12px}
+header h1{margin:0;font-size:18px}header .m{font-size:12px;opacity:.85;margin-top:4px}
+.blok{margin:14px 0}.blok h2{font-size:13px;letter-spacing:.5px;color:#1B4D2E;border-bottom:2px solid #B8946A;padding-bottom:4px}
+.kart{background:#fff;border-radius:8px;padding:10px 12px;margin:8px 0;border-left:5px solid #2ecc71;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.kart.mor{border-left-color:#8e44ad}.kart.gri{border-left-color:#95a5a6}
+.kart.secili{outline:3px solid #1B4D2E;background:#f2f8f4}
+.kod{font-size:19px;font-weight:700}.renk{font-weight:600}.sag{float:right;text-align:right}
+.adet{color:#1B4D2E;font-weight:700;font-size:17px}.det{font-size:12px;color:#6b6353;margin-top:3px}
+.uyari{background:#fdf3d7;border-left:4px solid #f1c40f;padding:8px 10px;font-size:12.5px;border-radius:0 6px 6px 0;margin:6px 0}
+.top{background:#1B4D2E;color:#fff;border-radius:8px;padding:10px 12px;font-weight:700;margin-top:8px}
+.mini{font-size:12px;color:#6b6353}
+#altbar{position:fixed;left:0;right:0;bottom:0;background:#16241c;color:#fff;padding:10px 14px;display:flex;align-items:center;gap:12px;z-index:9}
+#altbar button{flex:1;background:#2ecc71;border:0;color:#fff;font-weight:800;font-size:15px;padding:12px;border-radius:8px}
+#altbar button:disabled{background:#555}
+</style></head><body>
+<header><h1>FERHAT BEKMATİEV — Karar Ekranı</h1>
+<div class="m">Cari 2179 · Semey</div>
+<div class="m">Fuar fişleri: A0000035 (07.07, 502) + A0000140 (04.08, 88) = 590 ad, EKRAN GÖRÜNTÜSÜYLE DOĞRULANDI · Stok çekimi: 13.08.2026 16:53 İstanbul (CANLI)</div></header>
+
+<div class="blok" id="a2blok"><h2>A2 — STOKTAN ÇIKABİLİR (karta dokun = seç) · 3 kalem / 16 adet</h2>
+<div class="kart"><span class="sag"><span class="adet">8 ad</span><div class="det">2 seri × 4</div></span><span class="kod">050104</span> <span class="renk">NEFTİ</span><div class="det">ŞK-050104.95 · serbest 67</div></div><div class="kart"><span class="sag"><span class="adet">4 ad</span><div class="det">1 seri × 4</div></span><span class="kod">28642</span> <span class="renk">K.GRİ</span><div class="det">ŞK-28642.47 · serbest 31</div></div><div class="kart"><span class="sag"><span class="adet">4 ad</span><div class="det">1 seri × 4 (kısmi, sipariş 8)</div></span><span class="kod">050106</span> <span class="renk">NEFTİ</span><div class="det">ŞK-050106.95 · serbest 5</div><div class=uyari>Sipariş 8, stok sadece 5 — 1 seri (4) çıkar</div></div>
+<div class="top">A2 TOPLAM: 16 adet</div></div>
+
+<div class="blok"><h2>B — KARAR / ONAY BEKLEYEN</h2><div class="mini">Kalem yok. 1640 Laci 20, 1670 koduyla ikame edilip zaten kapanmış (Darko 13.08 teyidi).</div></div>
+
+<div class="blok"><h2>C — ÜRETİM / ANOMALİ (~640 ad)</h2><div class="kart gri"><div class="det">
+<b>Anomali (fişte gidip siparişte karşılığı olmayan, ekranla teyitli):</b> 7350 Laci+Gri 12 · 050106 Parlament 4 · 27486 Mavi 8 · 28642 Siyah 4 — farklı/geçmiş siparişe ait olabilir<br>
+<b>Sıfır stok (~620 ad):</b> Dev penye bloğu 7430/7435/7910/7915/7410/7415/7010/7070/6950/6930/6730/6940/6945 · 6980/6960/7970 · ceket 3210/3230/3190 · 1190 Laci · 1690 · 1630 · İkili Takım 320/350 · 29169/29156/29197 · 27486 Petrol · 27494 Cam Mavisi (bu renk hiç üretilmemiş)</div></div></div>
+
+<div class="mini">Sipariş 1.230 ad / fiş 590 ad / A2 16 ad / 1640→1670 ikamesiyle kapalı 20 ad / üretim+anomali ~584 ad. Fiyat bu belgede yer almaz.</div>
+
+<div id="altbar"><span id="selinfo" style="font-size:13px">0 seçili</span>
+<button id="genbtn" onclick="uret()" disabled>AYIRMA LİSTESİ ÜRET</button></div>
+<script>
+const ITEMS=[{"id": 1, "kod": "050104", "vkod": "ŞK-050104.95", "renk": "NEFTİ", "adet": 8, "seri": "2 seri × 4", "stok": 67, "not": ""}, {"id": 2, "kod": "28642", "vkod": "ŞK-28642.47", "renk": "K.GRİ", "adet": 4, "seri": "1 seri × 4", "stok": 31, "not": ""}, {"id": 3, "kod": "050106", "vkod": "ŞK-050106.95", "renk": "NEFTİ", "adet": 4, "seri": "1 seri × 4 (kısmi, sipariş 8)", "stok": 5, "not": "Sipariş 8, stok sadece 5 — 1 seri (4) çıkar"}];
+const sel=new Set();
+function renderSel(){let t=0,k=0;ITEMS.forEach(i=>{if(sel.has(i.id)){t+=i.adet;k++}});
+ document.getElementById('selinfo').textContent=k+" kalem · "+t+" adet seçili";
+ document.getElementById('genbtn').disabled=k===0;}
+function toggle(id,el){if(sel.has(id)){sel.delete(id);el.classList.remove('secili')}else{sel.add(id);el.classList.add('secili')}renderSel();}
+function uret(){
+  const chosen=ITEMS.filter(i=>sel.has(i.id));
+  const toplam=chosen.reduce((a,i)=>a+i.adet,0);
+  const cards=chosen.map((i,n)=>(
+    '<div class="kart"><div><span class="no">'+(n+1)+'</span><span class="bkod">'+i.kod+'</span> <span class="brenk">'+i.renk+'</span>'+
+    '<span class="sag"><b class="ad">'+i.adet+' adet</b><div class="gri2">'+i.seri+' · stok '+i.stok+'</div></span></div>'+
+    '<div class="vkod">'+i.vkod+'</div>'+(i.not?'<div class="kis">'+i.not+'</div>':'')+
+    '<div class="cbrow"><label><input type="checkbox" class="ay" onchange="exc(this,\'yok\')"> AYIRDIM</label>'+
+    '<label><input type="checkbox" class="yok" onchange="exc(this,\'ay\')"> YOK</label></div>'+
+    '<textarea placeholder="Açıklama (isteğe bağlı)"></textarea></div>'
+  )).join("");
+  const NL = String.fromCharCode(10);
+  const docParts = [
+    '<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
+    '<title>FERHAT — Ayırma Listesi (Depo)</title><style>',
+    'body{font-family:-apple-system,system-ui,sans-serif;background:#f4f4f6;margin:0;padding:12px;color:#23201A}',
+    'header{background:#16241c;color:#fff;padding:14px;border-radius:10px}header h1{margin:0;font-size:18px}',
+    'header .m{font-size:12px;opacity:.85;margin-top:4px}',
+    '.kart{background:#fff;border-left:5px solid #2ecc71;border-radius:8px;padding:10px 12px;margin:10px 0}',
+    '.no{display:inline-block;background:#16241c;color:#fff;border-radius:50%;width:22px;height:22px;text-align:center;line-height:22px;font-size:12px;margin-right:6px}',
+    '.bkod{font-size:24px;font-weight:800}.brenk{font-size:16px;font-weight:600}',
+    '.sag{float:right;text-align:right}.ad{color:#1B4D2E;font-size:17px}.gri2{font-size:11px;color:#888}',
+    '.vkod{font-family:monospace;background:#eee;display:inline-block;padding:3px 8px;border-radius:5px;margin:6px 0;font-size:13px}',
+    '.kis{background:#fdf3d7;border-left:4px solid #f1c40f;padding:6px 8px;font-size:12.5px;margin:6px 0}',
+    '.cbrow{margin:8px 0}.cbrow label{margin-right:18px;font-weight:700;font-size:15px}',
+    '.cbrow input{width:20px;height:20px;vertical-align:middle}',
+    'textarea{width:100%;box-sizing:border-box;border:1px solid #ddd;border-radius:6px;padding:6px;font-size:13px;min-height:34px}',
+    '.talimat{background:#16241c;color:#fff;padding:12px;border-radius:8px;font-size:13px;margin:14px 0}',
+    'button{width:100%;background:#2ecc71;color:#fff;border:0;border-radius:8px;padding:14px;font-size:16px;font-weight:800}',
+    '</style></head><body>',
+    '<header><h1>FERHAT — AYIRMA LİSTESİ</h1><div class="m">'+chosen.length+' kalem · '+toplam+' adet · 13.08.2026 (stok 16:53)</div></header>',
+    cards,
+    '<div class="talimat">Her kartta AYIRDIM veya YOK işaretle. Bitince raporu oluştur.</div>',
+    '<button onclick="rapor()">RAPORU OLUŞTUR + KOPYALA</button>',
+    '<scr' + 'ipt>',
+    'function exc(el,other){if(el.checked){var o=el.closest(".cbrow").querySelector("."+other);if(o)o.checked=false;}}',
+    'function rapor(){',
+    '  var cards=document.querySelectorAll(".kart");var ay=[],yok=[],bos=[];',
+    '  cards.forEach(function(c){',
+    '    var kod=c.querySelector(".bkod").textContent,renk=c.querySelector(".brenk").textContent,',
+    '        ad=c.querySelector(".ad").textContent,notv=c.querySelector("textarea").value.trim(),',
+    '        a=c.querySelector(".ay").checked,y=c.querySelector(".yok").checked;',
+    '    var line=kod+" "+renk+" — "+ad+(notv?" | NOT: "+notv:"");',
+    '    if(a)ay.push("✅ "+line);else if(y)yok.push("❌ "+line);else bos.push("⬜ "+line);',
+    '  });',
+    '  var NL=String.fromCharCode(10);',
+    '  var txt="FERHAT AYIRMA RAPORU"+NL+NL+ay.join(NL)+(yok.length?NL+NL+yok.join(NL):"")+(bos.length?NL+NL+bos.join(NL):"");',
+    '  showReportModal(txt);',
+    '}',
+    'function showReportModal(txt){',
+    '  var ov=document.createElement("div");',
+    '  ov.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;display:flex;align-items:flex-end;";',
+    '  var box=document.createElement("div");',
+    '  box.style.cssText="background:#fff;width:100%;border-radius:14px 14px 0 0;padding:16px;max-height:80vh;display:flex;flex-direction:column;gap:10px;";',
+    '  var title=document.createElement("div");',
+    '  title.textContent="Rapor hazır";',
+    '  title.style.cssText="font-weight:800;font-size:16px;color:#16241c;";',
+    '  var ta=document.createElement("textarea");',
+    '  ta.value=txt; ta.readOnly=true;',
+    '  ta.style.cssText="width:100%;box-sizing:border-box;height:220px;font-family:monospace;font-size:13px;border:1px solid #ddd;border-radius:8px;padding:8px;";',
+    '  var waBtn=document.createElement("a");',
+    '  waBtn.textContent="WHATSAPP\u2019TA AÇ VE GÖNDER (Ali Dark)";',
+    '  waBtn.href="https://wa.me/905312639498?text="+encodeURIComponent(txt);',
+    '  waBtn.target="_blank";',
+    '  waBtn.style.cssText="display:block;text-align:center;background:#25D366;color:#fff;font-weight:800;padding:14px;border-radius:8px;text-decoration:none;font-size:15px;";',
+    '  var copyBtn=document.createElement("button");',
+    '  copyBtn.textContent="METNİ KOPYALA";',
+    '  copyBtn.style.cssText="background:#1B4D2E;color:#fff;border:0;padding:12px;border-radius:8px;font-weight:700;font-size:14px;";',
+    '  copyBtn.onclick=function(){',
+    '    ta.focus(); ta.select(); ta.setSelectionRange(0,999999);',
+    '    var ok=false;',
+    '    try{ ok=document.execCommand("copy"); }catch(e){}',
+    '    if(!ok && navigator.clipboard){ navigator.clipboard.writeText(txt).then(function(){ok=true;}).catch(function(){}); }',
+    '    copyBtn.textContent=ok?"KOPYALANDI ✓":"Elle seçip kopyala (yukarıdaki kutu)";',
+    '  };',
+    '  var closeBtn=document.createElement("button");',
+    '  closeBtn.textContent="Kapat";',
+    '  closeBtn.style.cssText="background:none;border:0;color:#888;padding:8px;font-size:13px;";',
+    '  closeBtn.onclick=function(){ document.body.removeChild(ov); };',
+    '  box.appendChild(title); box.appendChild(ta); box.appendChild(waBtn); box.appendChild(copyBtn); box.appendChild(closeBtn);',
+    '  ov.appendChild(box);',
+    '  document.body.appendChild(ov);',
+    '  ta.focus(); ta.select();',
+    '}',
+    '</scr' + 'ipt></body></html>'
+  ];
+  const doc = docParts.join(NL);
+  const blob=new Blob([doc],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ferhat_ayirma_fisi.html';a.click();
+}
+window.addEventListener('DOMContentLoaded',function(){
+ document.querySelectorAll('#a2blok .kart').forEach(function(el,idx){
+  el.style.cursor='pointer';el.addEventListener('click',function(){toggle(ITEMS[idx].id,el);});
+ });
+ renderSel();
+});
+</script></body></html>
